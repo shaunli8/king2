@@ -121,12 +121,6 @@ export class SettingsControl extends LocalStorage{
         // 'difficulty', the value is parsed to a floating point number
         GameEnv.difficulty = handleKey('difficulty', GameEnv.difficulty);
 
-        if (GameEnv.true && GameEnv.true1 === true) {
-            // 
-            GameEnv.gravity = GameEnv.gravity * 2;
-            GameEnv.gameSpeed = GameEnv.gameSpeed * 2;
-        }
-
 
         // List for th 'userID' update event
         window.addEventListener("userID", (e)=>{
@@ -458,11 +452,11 @@ export class SettingsControl extends LocalStorage{
         const text = document.createElement("p");
         const button = document.createElement("button");
 
-        text.innerText = "1/5 players";
+        text.innerText = "1/10 players";
         button.innerText = "check player count";
 
         function update(d){
-            text.innerText = String(d)+"/5 players";
+            text.innerText = String(d)+"/10 players";
         }
         Socket.createListener("playerCount",update);
         button.addEventListener("click",()=>{
